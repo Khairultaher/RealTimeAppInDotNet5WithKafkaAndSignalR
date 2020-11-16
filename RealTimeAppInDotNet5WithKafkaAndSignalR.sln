@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streaming.Consumer", "Streaming.Consumer\Streaming.Consumer.csproj", "{D6342625-DCFA-46EF-AE1F-9A5374D20582}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Streaming.Consumer", "Streaming.Consumer\Streaming.Consumer.csproj", "{D6342625-DCFA-46EF-AE1F-9A5374D20582}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streaming.Producer", "Streaming.Producer\Streaming.Producer.csproj", "{CD9EDBEE-8A16-48AC-8FE3-3F2227006DB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Streaming.Producer", "Streaming.Producer\Streaming.Producer.csproj", "{CD9EDBEE-8A16-48AC-8FE3-3F2227006DB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{C9910B2B-4EE7-4A01-8890-3D366450C572}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CD9EDBEE-8A16-48AC-8FE3-3F2227006DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD9EDBEE-8A16-48AC-8FE3-3F2227006DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD9EDBEE-8A16-48AC-8FE3-3F2227006DB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9910B2B-4EE7-4A01-8890-3D366450C572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9910B2B-4EE7-4A01-8890-3D366450C572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9910B2B-4EE7-4A01-8890-3D366450C572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9910B2B-4EE7-4A01-8890-3D366450C572}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
