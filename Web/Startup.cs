@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Streaming.Consumer.Implementation;
+using Streaming.Consumer.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,9 @@ namespace Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddSingleton<IBookingStream, BookingStream>();
+            services.AddSingleton<IBookingConsumer, BookingConsumer>();
 
             #region SignalR
             services.AddSignalR();
@@ -67,6 +72,7 @@ namespace Web
             app.UseCors("CorsPolicy");
 
             app.UseHttpsRedirection();
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -78,10 +84,18 @@ namespace Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<BookingHub>("/booking");
+                
+                endpoints.MapHub<BookingHub>("/bookinghub");              
+                endpoints.MapHub<ChatHub>("/chathub");
             });
-            
+
             #endregion
+
+
+            app.ApplicationServices.GetService<BookingMessageRelay>();
+
+            Task.Factory.StartNew(() => app.ApplicationServices
+            .GetService<IBookingConsumer>().Listen());
 
             app.UseEndpoints(endpoints =>
             {
@@ -89,6 +103,7 @@ namespace Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
     }
 }

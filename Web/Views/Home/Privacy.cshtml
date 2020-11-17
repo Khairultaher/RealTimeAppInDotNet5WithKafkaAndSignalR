@@ -1,6 +1,16 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = ".NET 5.0, Kafka, SignalR";
 }
-<h1>@ViewData["Title"]</h1>
+<h1>Real time app with.NET 5.0, Kafka, SignalR</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<script src="~/js/signalr/signalr.js"></script>
+<script>
+    var bookingHubConnection = new signalR.HubConnectionBuilder().withUrl("/bookinghub").build();
+    bookingHubConnection.start().catch(err => {
+        console.log('Error in connection: ' + err)
+    });
+    bookingHubConnection.on('booking', (message) => {
+        //debugger;
+        console.log('Received message: ' + message);
+    });
+</script>

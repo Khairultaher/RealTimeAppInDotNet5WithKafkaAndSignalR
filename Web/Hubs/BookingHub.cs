@@ -9,10 +9,9 @@ namespace Web.Hubs
 {
     public interface IBookingHub
     {
-        Task InvokeAsync(string msg, object com);
+        Task SendAsync(string msg, object obj);
     }
 
-    [EnableCors]
     public class BookingHub: Hub<IBookingHub>
     {
     }
